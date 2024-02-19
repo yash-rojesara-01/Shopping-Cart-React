@@ -24,7 +24,7 @@ const Navbar = () => {
         <Link to={"/"}>
           <div className="ml-5">
             <h1 className="bg-gradient-to-br from-violet-900 to-purple-300 bg-clip-text text-transparent text-xl sm:text-2xl md:text-3xl font-bold logo cursor-pointer tracking-wider">
-              REDUX-CART
+              Flamingo-CART
             </h1>
           </div>
         </Link>
