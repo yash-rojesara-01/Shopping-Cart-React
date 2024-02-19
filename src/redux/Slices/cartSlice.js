@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { combineReducers, createSlice } from "@reduxjs/toolkit";
 
 const initialState = [];
 
@@ -15,5 +15,22 @@ const cartSlice = createSlice({
   },
 });
 
+const filterSlice = createSlice({
+  name: "filterData",
+  initialState,
+  reducers:{
+    filterVal(state, action) {
+      return action.payload;
+    }
+  },
+});
+
+const reducer = combineReducers({
+  cart: cartSlice.reducer,
+  filterVal: filterSlice.reducer,
+})
+
+
 export const { add, remove } = cartSlice.actions;
-export default cartSlice.reducer;
+export const { filterVal } = filterSlice.actions;
+export default reducer;
