@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ShoppingBasket } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setSearchTerm } from "../redux/Slices/filterSlice"; // Import setSearchTerm action
+import { setSearchTerm } from "../redux/Slices/filterSlice";
 
 const Navbar = () => {
   const [value, setValue] = useState("");
@@ -10,9 +10,9 @@ const Navbar = () => {
   const { cart } = useSelector((state) => state);
 
   const handleOnChange = (e) => {
-    const searchTerm = e.target.value.toLowerCase(); // Convert search term to lowercase
+    const searchTerm = e.target.value.toLowerCase();
     setValue(searchTerm);
-    dispatch(setSearchTerm(searchTerm)); // Dispatch setSearchTerm action
+    dispatch(setSearchTerm(searchTerm));
   };
 
   return (
