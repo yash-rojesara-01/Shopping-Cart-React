@@ -264,3 +264,11 @@ export const products = [
     },
   },
 ];
+
+export const CarouselImages = [
+  "https://rukminim1.flixcart.com/flap/3376/560/image/7760adba4cdde874.jpg?q=50",
+  "https://rukminim1.flixcart.com/flap/1688/280/image/90cdb794821102c8.jpg?q=50",
+  "https://rukminim1.flixcart.com/flap/1688/280/image/e3e5625077962405.jpg?q=50",
+  "https://rukminim1.flixcart.com/flap/1688/280/image/9684c5bba6b14e7f.jpg?q=50",
+  "https://rukminim1.flixcart.com/flap/3376/560/image/374a88846acf16b2.jpg?q=50",
+];

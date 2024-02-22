@@ -3,6 +3,7 @@ import Product from "../components/Product";
 import { products } from "../data";
 import { useSelector } from "react-redux";
 import Filter from "../components/Filter";
+import Carousel from "../components/Carousel";
 
 const Home = () => {
   const { searchTerm, selectedCategories, priceRange } = useSelector(
@@ -25,12 +26,15 @@ const Home = () => {
   });
 
   return (
-    <div style={{ display: "flex", flexDirection: "row" }}>
-      <Filter />
-      <div className="min-h-[80vh] grid sm:grid-cols-2 md:grid-cols-3 space-x-5 space-y-10 lg:grid-cols-4 max-w-6xl mx-auto p-2 ">
-        {filteredProducts.map((item) => {
-          return <Product key={item.id} item={item} />;
-        })}
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <Carousel />
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <Filter />
+        <div className="min-h-[80vh] grid sm:grid-cols-2 md:grid-cols-3 space-x-5 space-y-10 lg:grid-cols-4 max-w-6xl mx-auto p-2 ">
+          {filteredProducts.map((item) => {
+            return <Product key={item.id} item={item} />;
+          })}
+        </div>
       </div>
     </div>
   );
