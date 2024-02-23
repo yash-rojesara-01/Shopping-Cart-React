@@ -4,23 +4,32 @@ import { CarouselImages } from "../data";
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [animation, setAnimation] = useState("");
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === CarouselImages.length - 1 ? 0 : prevIndex + 1
-    );
+    setAnimation("slide-out");
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === CarouselImages.length - 1 ? 0 : prevIndex + 1
+      );
+      setAnimation("slide-in");
+    }, 500); // Wait for slide-out animation to complete
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? CarouselImages.length - 1 : prevIndex - 1
-    );
+    setAnimation("slide-out");
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? CarouselImages.length - 1 : prevIndex - 1
+      );
+      setAnimation("slide-in");
+    }, 500); // Wait for slide-out animation to complete
   };
 
   useEffect(() => {
     const interval = setInterval(nextSlide, 3000); // Automatically advance slide every 3 seconds
     return () => clearInterval(interval); // Clean up the interval on component unmount
-  }, [currentIndex]); // Re-run effect when currentIndex changes
+  }, []); // Run effect only once on component mount
 
   return (
     <div className="carousel">
@@ -28,24 +37,10 @@ const Carousel = () => {
         &#10094;
       </button>
       <div className="slides">
-        <div className="slide" style={{ transform: `translateX(0%)` }}>
+        <div className={`slide ${animation}`}>
           <img
             src={CarouselImages[currentIndex]}
             alt={`Slide ${currentIndex + 1}`}
-          />
-        </div>
-        <div className="slide">
-          <img
-            src={
-              CarouselImages[
-                currentIndex === CarouselImages.length - 1
-                  ? 0
-                  : currentIndex + 1
-              ]
-            }
-            alt={`Slide ${
-              currentIndex === CarouselImages.length - 1 ? 1 : currentIndex + 2
-            }`}
           />
         </div>
       </div>
