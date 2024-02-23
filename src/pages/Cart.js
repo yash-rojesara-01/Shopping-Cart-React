@@ -33,7 +33,7 @@ const Cart = () => {
           return Math.ceil(value);
       }
   
-      return Math.floor(value);
+      return value.toFixed();
   }
   
   const clearCart = () => {
