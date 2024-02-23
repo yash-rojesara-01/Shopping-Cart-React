@@ -50,22 +50,21 @@ const CartItem = ({ item }) => {
             <h1 className="text-xl text-purple-700 font-semibold">
               {item.title}
             </h1>
-            <p>${item.price}</p>
-            <p className="bold">{item.count}</p>
+            <p>${item.count * item.price}</p>
           </div>
           <button
-               className="float-right plus"
-               onClick={addToCart}
-            >
-              +
-            </button>
-          {/* ) : ( */}
-          <button>{item.count}</button>
-          <button
-            className="float-right minus"
-            onClick={()=>removeFromCartData(item.count,item.uid)}
+               className="float-right minus"
+               onClick={()=>removeFromCartData(item.count,item.uid)}
             >
               -
+            </button>
+          {/* ) : ( */}
+          <button className="bold">{item.count}</button>
+          <button
+            className="float-right plus"
+            onClick={addToCart}
+            >
+              +
             </button>
 
         </div>
