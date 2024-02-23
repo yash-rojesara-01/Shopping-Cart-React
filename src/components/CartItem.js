@@ -41,16 +41,25 @@ const CartItem = ({ item }) => {
   };
 
 
-  return (
+  function truncate(value)
+  {
+      if (value < 0) {
+          return Math.ceil(value);
+      }
+  
+      return value.toFixed();
+  } 
+   return (
     <>
       <div className="flex items-center p-5 justify-between bg-violet-200 mt-2 mb-2 rounded-xl">
         <div className="flex p-3">
           <img src={item.image} className="h-28 rounded-lg" alt="" />
           <div className="ml-10 self-start space-y-5">
             <h1 className="text-xl text-purple-700 font-semibold">
-              {item.title}
-            </h1>
-            <p>${item.count * item.price}</p>
+              {item.title} 
+            </h1> 
+            <span class="price-label">${truncate(item.price)}</span>
+            <p>${truncate(item.count * item.price)}</p>
           </div>
           <button
                className="float-right minus"

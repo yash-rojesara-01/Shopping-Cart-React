@@ -8,6 +8,7 @@ import { SnackbarProvider } from "notistack";
 import { Slide } from "@mui/material";
 
 const App = () => {
+  
   return (
     <>
       <Router>
