@@ -9,7 +9,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state);
 
-  const handleOnChange = (e) => {
+  const handleOnchange = (e) => {
     const searchTerm = e.target.value.toLowerCase();
     setValue(searchTerm);
     dispatch(setSearchTerm(searchTerm));
