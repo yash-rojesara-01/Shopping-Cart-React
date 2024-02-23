@@ -9,13 +9,26 @@ const Cart = () => {
   useEffect(() => {
     setTotalAmount(cart.reduce((acc, curr) => acc + curr.price, 0));
   }, [cart]);
+  const cartData = Object.values(cart.reduce((p, v) => {
+    const old = p[v.id];
+    if (!old)
+      p[v.id] = { ...v, count: 1 };
+    else if (old.sort > v.sort)
+      p[v.id] = { ...v, count: old.count + 1 };
+    else
+      p[v.id].count++;
+    return p;
+  }, {}));
+
+  console.log("cart",cartData)
+  
   return (
     <>
-      {cart.length > 0 ? (
+      {cartData?.length > 0 ? (
         <>
           <div className="min-h-[80vh] grid md:grid-cols-2 max-w-6xl mx-auto">
             <div className="flex flex-col justify-center items-between p-2">
-              {cart.map((item) => {
+              {cartData?.map((item) => {
                 return <CartItem key={item.id} item={item} />;
               })}
             </div>

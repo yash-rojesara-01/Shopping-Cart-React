@@ -1,14 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import { Delete } from "@mui/icons-material";
-import { remove } from "../redux/Slices/cartSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useSnackbar } from "notistack";
+import { add, remove, removeFromCartLastItem } from "../redux/Slices/cartSlice";
 
 const CartItem = ({ item }) => {
   const { cart } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const { enqueueSnackbar } = useSnackbar();
+  const [itemCount, setItemCount] = useState(0);
 
   const removeItemFromCart = () => {
     dispatch(remove(item.id));
@@ -17,6 +18,28 @@ const CartItem = ({ item }) => {
       autoHideDuration: 3000,
     });
   };
+
+  
+  const addToCart = () => {
+    setItemCount(itemCount+1)
+    dispatch(add(item));
+    enqueueSnackbar(`Item added to your cart successfully`, {
+      variant: "success",
+      autoHideDuration: 3000,
+    });
+  };
+
+  const removeFromCartData = (count,uid) => {
+    if(count !== 0){
+      setItemCount(count-1)
+    dispatch(removeFromCartLastItem(uid));
+    enqueueSnackbar(`Item removed from your cart!`, {
+      variant: "warning",
+      autoHideDuration: 3000,
+    });
+  }
+  };
+
 
   return (
     <>
@@ -28,7 +51,23 @@ const CartItem = ({ item }) => {
               {item.title}
             </h1>
             <p>${item.price}</p>
+            <p className="bold">{item.count}</p>
           </div>
+          <button
+               className="float-right plus"
+               onClick={addToCart}
+            >
+              +
+            </button>
+          {/* ) : ( */}
+          <button>{item.count}</button>
+          <button
+            className="float-right minus"
+            onClick={()=>removeFromCartData(item.count,item.uid)}
+            >
+              -
+            </button>
+
         </div>
         <div
           onClick={removeItemFromCart}

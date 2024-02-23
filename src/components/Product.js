@@ -11,7 +11,10 @@ const Product = ({ item }) => {
 
   const addToCart = () => {
     setItemCount(itemCount+1)
-    dispatch(add(item));
+   const itemdata = {...item} 
+
+   itemdata['uid'] = new Date().getTime().toString()
+    dispatch(add(itemdata));
     enqueueSnackbar(`Item added to your cart successfully`, {
       variant: "success",
       autoHideDuration: 3000,

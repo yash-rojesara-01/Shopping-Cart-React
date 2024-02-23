@@ -51,3 +51,9 @@ body {
     margin-left: 3px;
 
 }
+.bold{
+  font-weight: bold;
+}
+.count-span{
+  margin-top: 55px;
+}
