@@ -23,6 +23,10 @@ body {
 
 .description{
   width: 200px;
+}
+
+.description{
+  width: 230px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
