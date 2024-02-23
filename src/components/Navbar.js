@@ -19,7 +19,8 @@ const Navbar = () => {
     <>
       <nav className="flex items-center justify-between h-20 max-w-6xl mx-auto">
         <Link to={"/"}>
-          <div className="ml-5">
+          <div className="ml-5 header">
+            <img className="flame" src="https://img.freepik.com/free-vector/flamingo-cartoon-style-isolated-white-background_1308-65667.jpg"/>
             <h1 className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent text-xl sm:text-2xl md:text-3xl font-bold logo cursor-pointer tracking-wider">
               Flamingo-CART
             </h1>
