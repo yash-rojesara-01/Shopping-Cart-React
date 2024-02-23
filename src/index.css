@@ -21,55 +21,53 @@ body {
   padding: 0em 2em;
 }
 
-.description{
+.description {
   width: 200px;
 }
 
-.description{
+.description {
   width: 230px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.price-cont{
+.price-cont {
   width: 100%;
   margin-top: 10px;
 }
-.price{
+.price {
   font-weight: bold;
 }
-.float-right{
+.float-right {
   float: right;
 }
-.plus{
+.plus {
   font-size: 21px;
   color: green;
   margin-top: -4px;
   margin-right: 3px;
-
 }
-  .minus{
-    font-size: 21px;
-    color: red;
-    margin-top: -4px;
-    margin-left: 3px;
-
+.minus {
+  font-size: 21px;
+  color: red;
+  margin-top: -4px;
+  margin-left: 3px;
 }
-.bold{
+.bold {
   font-weight: bold;
 }
-.count-span{
+.count-span {
   margin-top: 55px;
 }
-.flame{
-height: 57px;
-width: 55px;
+.flame {
+  height: 57px;
+  width: 55px;
+  transform: scalex(-1);
 }
-.header{
+.header {
   display: flex;
 }
-.tracking-wider{
-  
+.tracking-wider {
   margin-top: 10px;
   margin-left: 5px;
 }
