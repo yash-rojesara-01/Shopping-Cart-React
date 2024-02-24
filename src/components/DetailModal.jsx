@@ -28,7 +28,7 @@ export default function DetailModal({ item, open, handleClose }) {
         fullWidth={fullWidth}
         maxWidth={maxWidth}
         open={open}
-        // onClose={handleClose}
+        onClose={handleClose}
       >
         <DialogContent>
           <DialogContentText>
